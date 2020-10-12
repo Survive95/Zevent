@@ -5,7 +5,7 @@
         <h1>
           <img
             class="logo"
-            src="../src\assets\Zevent_logo.png"
+            src="../src/assets/logo.png"
             alt="zevent_logo"
           />
         </h1>
