@@ -94,13 +94,29 @@ export default {
   mounted() {
     setInterval(() => {
       console.log("Update !!!");
-      axios.get("https://zevent.fr/api/data.json").then((res) => {
-        this.streamersData = res.data;
-      });
-    }, 60000);
-    axios.get("https://zevent.fr/api/data.json").then((res) => {
+
+      axios({
+      method: 'GET',
+      headers: {"Access-Control-Allow-Origin": "*"},
+      url: 'https://zevent.fr/api/data.json',
+      withCredentials: true
+    })
+    .then((res) => {
       this.streamersData = res.data;
-    });
+    })
+
+    }, 60000);
+
+    axios({
+      method: 'GET',
+      headers: {"Access-Control-Allow-Origin": "*"},
+      url: 'https://zevent.fr/api/data.json',
+      withCredentials: true
+    })
+    .then((res) => {
+      this.streamersData = res.data;
+    })
+
     window.addEventListener('scroll', () => {
       if(window.scrollY > 0){
         this.showMoney = true
